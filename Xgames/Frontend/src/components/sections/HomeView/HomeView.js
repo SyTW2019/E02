@@ -37,7 +37,7 @@ class HomeView extends Component{
 
     return(
       <div>
-      <Layout>
+      <Layout />
       <Slider />
       <Grid container direction="row" alignContent='center' alignItems='flex-start' spacing={3} >
         <Grid item xs={12} sm={12} md={12} xl={12} lg={12}>
@@ -68,7 +68,6 @@ class HomeView extends Component{
         </Grid>
       </Grid>
       <PageFooter />
-      </Layout>
     </div>
     );
   }

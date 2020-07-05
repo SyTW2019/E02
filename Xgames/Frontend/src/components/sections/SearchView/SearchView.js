@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import '../../../assets/css/App.css';
 import GameCard from '../../GameCard/GameCard';
+import Layout from '../../../hoc/Layout/Layout';
 import Header from '../../Header/Header';
 import Slider from '../../Slider/Slider';
 import Footer from '../../Footer/Footer';
@@ -60,10 +61,14 @@ class SearchView extends Component{
     })
   }
   render(){
-    return(
+    return( 
       <div>
-        <input class="form-control"  value={this.state.text} onChange={(text) => this.filter(text)}/>
-        {this.state.producto.map( item => <GameCard key={item} details={item} producto={this.state.producto[item]}/>)}
+          <Layout>
+            <div>
+              <input class="form-control"  value={this.state.text} onChange={(text) => this.filter(text)}/>
+              {this.state.producto.map( item => <GameCard key={item} details={item} producto={this.state.producto[item]}/>)}
+            </div>
+          </Layout>
       </div>
     )
   }
