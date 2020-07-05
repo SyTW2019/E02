@@ -9,12 +9,12 @@ class CardBody extends Component {
       return (
         <div className={classes.cardBody}>
             <div className={classes.cardInformation}>
-                <p className={classes.CardGameCategory}>Aventura</p>
-                <p className={classes.CardRating}><i class={[classes.cardStar,"fa fa-star"].join(' ')}></i>8.2</p>
+                <p className={classes.CardGameCategory}>{this.props.dataCategory}</p>
+                <p className={classes.CardRating}><i class={[classes.cardStar,"fa fa-star"].join(' ')}></i>{this.props.gameRating}</p>
+                <h2 className={classes.cardTitle}>{this.props.gameTitle}</h2>
           </div>
-          <h2>{this.props.title}</h2>
-          
-          <p className={classes.cardContent}>{this.props.text}</p>
+          <p className={classes.cardContent}>{this.props.description}</p>
+
           {/*<CardButton/>*/}
         </div>
       )

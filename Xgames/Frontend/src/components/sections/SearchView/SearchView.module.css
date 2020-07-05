@@ -1,3 +1,4 @@
+
 .searchWrapper{
     background: rgba(0, 0, 0, 0.6);
     max-width: 300px;
@@ -16,12 +17,6 @@
 
 }
 
-.sectionTitle{
-    font-weight: bold;
-    margin-top: 30px;
-    text-align: center;
-
-}
 .searchViewTitle{
     display:flex;
     flex-direction: column;
@@ -72,10 +67,3 @@
 }
 
 
-
-@media(min-width:768px) {
-    .CardList{
-        width:80%;
-        margin-top: 0;
-    }
-}

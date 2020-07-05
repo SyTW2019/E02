@@ -13,33 +13,14 @@ import Typography from '@material-ui/core/Typography';
 import CloseIcon from '@material-ui/icons/Close';
 import Slide from '@material-ui/core/Slide';
 
-const useStyles = makeStyles((theme) => ({
-  appBar: {
-    position: 'relative',
-  },
-  title: {
-    marginLeft: theme.spacing(2),
-    flex: 1,
-  },
-  buttonCard: {
-    border: 'none',
-    boxShadow: 'none',
-    fontFamily: 'inherit',
-    backgroundColor: 'transparent',
-    color: '#341cac',
-    fontSize: '15px',
-    transition: '0.25s',
-    display: 'flex',
-    alignItems: 'flex-start'
-  },
-}));
+import classes from './ResponsiveDialog.module.css';
+
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
 export default function FullScreenDialog(props) {
-  const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -51,21 +32,21 @@ export default function FullScreenDialog(props) {
   };
 
   return (
-    <div>
+    <div className={classes.moreInfo}>
       <Button className={classes.buttonCard} variant="outlined" color="primary" onClick={handleClickOpen}>
         More Info
       </Button>
       <Dialog fullScreen open={open} onClose={handleClose} TransitionComponent={Transition}>
-        <h1 align="center">{props.title}</h1>
+        <h1 align="center">{props.gameTitle}</h1>
         <img
-          src={props.image}
-          alt={props.title}
+          src={props.imageSrc}
+          alt={props.gameTitle}
           width="50%"
           height="50%"
           justify = "center"
         />
         <h1> Descripción</h1>
-        {props.text}
+        {props.description}
         <h1>Precios</h1>
       </Dialog>
     </div>

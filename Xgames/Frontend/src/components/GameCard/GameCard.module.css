@@ -1,12 +1,35 @@
 .gamecard {
     width:280px;
-    display: block;
+    display: table;
     margin: 60px auto;
     box-shadow: -5px 5px 5px 10px #FFEABB;
     transition: .25s;
+    height: 420px;
+    text-align:center;
 }
 .gamecard:hover {
       box-shadow: 10px 5px 40px 20px #ff2a;
       cursor: pointer;
 }
 
+
+
+.InfoButton {
+    outline: none;
+    cursor: pointer;
+    border: 1px solid #966909;
+    color: #341cac;
+    font-family: inherit;
+    font-size: 15px;
+    padding: 15px 25px;
+    transition: 0.25s;
+    display: table-cell;
+    vertical-align: bottom; 
+    box-shadow: 2px 2px 2px #966909;
+}
+
+.InfoButton:hover, .InfoButton:active {
+    background-color: #7C80C7;
+    border: 1px solid #966909;
+    color: #C70000;
+}

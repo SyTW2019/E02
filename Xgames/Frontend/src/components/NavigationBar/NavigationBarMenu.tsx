@@ -22,8 +22,8 @@ const NavigationBarMenu: React.FC = () => {
         setMenuOpen(false);
       }}
     >
-      <MenuItem onClick={() => history.push("/signup")}>
-        {"Iniciar Sesion"}
+      <MenuItem onClick={() => history.push("/login")}>
+        {"Iniciar Sesión"}
       </MenuItem>
 
       <MenuItem onClick={() => history.push("/register")}>

@@ -3,19 +3,20 @@ import classes from './GameCard.module.css';
 import CardHeader from '../CardHeader/CardHeader';
 import CardBody from '../CardBody/CardBody';
 import ResponsiveDialog from '../ResponsiveDialog/ResponsiveDialog';
+import Modal from '../UI/Modal/Modal';
+import GameDescription from '../GameDescription/GameDescription';
 
 class GameCard extends Component {
     render() {
       return (
         
-        <article className={classes.gamecard}>
-          {console.log(this.props)}
-          <CardHeader image={this.props.details.image}/>
-          <CardBody title={this.props.details.title} text={this.props.details.text}/>
-          <ResponsiveDialog title={this.props.details.title} image={this.props.details.image} text={this.props.details.text}/>
-        </article>
+        <div className={classes.gamecard}>
+          <CardHeader imageSrc={this.props.details.imageSrc}/>
+          <CardBody gameTitle={this.props.details.gameTitle} description={this.props.description} dataCategory={this.props.details.dataCategory} gameRating={this.props.details.gameRating}/>
+          <button className={classes.InfoButton} color="primary" onClick={this.props.getInfo}>More Info</button>
+        </div>
       )
     }
 }
 
-export default GameCard;
+export default GameCard;  

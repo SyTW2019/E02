@@ -18,12 +18,16 @@ export default function Footer() {
           Foro
         </a>
         <span className={classes.spacer}>·</span>
-        <a className={classes.link} href="/juego">
+        <a className={classes.link} href="/newgame">
           Añadir Juego
         </a>
         <span className={classes.spacer}>·</span>
-        <a className={classes.link} href="/not-found">
-          Otra cosa
+        <a className={classes.link} href="/search">
+          Buscador
+        </a>
+        <span className={classes.spacer}>·</span>
+        <a className={classes.link} href="/noticias">
+          Noticias
         </a>
       </Container>
       <Container className={classes.container}>

@@ -4,9 +4,9 @@ import classes from './CardHeader.module.css';
 class CardHeader extends Component {
     render() {
 
-      const image = this.props.image;
+      const imageSrc = this.props.imageSrc;
       var style = { 
-          backgroundImage: 'url(' + image + ')',
+          backgroundImage: 'url(' + 'http://' +  imageSrc + ')',
       };
       return (
         

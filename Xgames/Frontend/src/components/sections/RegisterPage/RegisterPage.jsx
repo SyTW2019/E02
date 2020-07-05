@@ -5,6 +5,11 @@ import ImagePicker from 'react-image-picker'
 //import '../_constants/profile_picture/index.css';
 //import { imageList } from '../_constants/profile_picture/random_profile_picture.js';
 import { userActions } from '../../../_actions';
+import classes from './RegisterPage.module.css';
+import Slider from '../../Slider/Slider';
+import Layout from '../../../hoc/Layout/Layout';
+import PageFooter from '../../PageFooter/PageFooter';
+
 
 import imageList from "../../../_constants/profile_picture/index";
 
@@ -78,57 +83,65 @@ export class RegisterPage extends React.Component {
         const { registering  } = this.props;
         const { user, submitted } = this.state;
         return (
-            <div className="col-md-6 col-md-offset-3">
-                <h2>Register</h2>
-                <form name="form" onSubmit={this.handleSubmit}>
-                    <div className={'form-group' + (submitted && !user.name ? ' has-error' : '')}>
-                        <label htmlFor="name">Name</label>
-                        <input placeholder="Max" minLength = "4" maxLength = "10" type="text" className="form-control" name="name" value={user.name} onChange={this.handleChange} />
-                        {submitted && !user.name &&
-                            <div className="help-block">Name is required</div>
-                        }
-                    </div>
-                    <div className={'form-group' + (submitted && !user.email ? ' has-error' : '')}>
-                        <label htmlFor="email">Email</label>
-                        <input type="email" placeholder = "user@gmail.com" minLength = "7" maxLength = "25" className="form-control" name="email" value={user.email} onChange={this.handleChange} />
-                        {submitted && !user.email &&
-                            <div className="help-block">Email is required</div>
-                        }
-                    </div>
-                    <div className={'form-group' + (submitted && !user.email ? ' has-error' : '')}>
-                        <label htmlFor="username">Username</label>
-                        <input placeholder= "Username" minLength = "5" maxLength = "10" type="text" className="form-control" name="username" value={user.username} onChange={this.handleChange} />
-                        {submitted && !user.username &&
-                            <div className="help-block">Username is required</div>
-                        }
-                    </div>
-                    <div className={'form-group' + (submitted && !user.password ? ' has-error' : '')}>
-                        <label htmlFor="password">Password</label>
-                        <input placeholder="8 minimum char, min 1 lower,1 upper and 1 num" minLength = "8" maxLength = "20" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$" type="password" className="form-control" name="password" value={user.password} onChange={this.handleChange} />
-                        {submitted && !user.password &&
-                            <div className="help-block">Password is required</div>
-                        }
-                    </div>
+            <div>
+            <Layout>
+            <Slider pageTitle={"Registrate ahora mismo"}/>
+            <div className={[classes.PageWrapper,classes.BgGraOne,classes.PtOneEight,classes.PbOneHun,classes.FontPoppins].join(' ')}>  
+                <div className={[classes.Wrapper,classes.WrapperW].join(' ')}>
+                    <div className={[classes.Card,classes.CardThree].join(' ')}>
+                        <div className={classes.CardHeading}></div>
+                            <div className={classes.CardBody}>
+                                <h2 className={classes.Title}>Registration</h2>
+                                    <form name="form" onSubmit={this.handleSubmit}>
+                                        <div className={['form-group' + (submitted && !user.name ? ' has-error' : ''), classes.InputGroup].join(' ')}>
+                                            <input placeholder="Name" minLength = "4" maxLength = "10" type="text" className={classes.InputSt} name="name" value={user.name} onChange={this.handleChange} />
+                                            {submitted && !user.name &&
+                                                <div className="help-block">Name is required</div>
+                                            }
+                                        </div>
+                                        <div className={['form-group' + (submitted && !user.email ? ' has-error' : ''), classes.InputGroup].join(' ')}>
+                                            <input type="email" placeholder = "Email" minLength = "7" maxLength = "25" className={classes.InputSt} name="email" value={user.email} onChange={this.handleChange} />
+                                            {submitted && !user.email &&
+                                                <div className="help-block">Email is required</div>
+                                            }
+                                        </div>
+                                        <div className={['form-group' + (submitted && !user.email ? ' has-error' : ''), classes.InputGroup].join(' ')}>
+                                            <input placeholder= "Username" minLength = "5" maxLength = "10" type="text" className={classes.InputSt} name="username" value={user.username} onChange={this.handleChange} />
+                                            {submitted && !user.username &&
+                                                <div className="help-block">Username is required</div>
+                                            }
+                                        </div>
+                                        <div className={['form-group' + (submitted && !user.password ? ' has-error' : ''), classes.InputGroup].join(' ')}>
+                                            <input placeholder="Password( 8 character min)" minLength = "8" maxLength = "20" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$" type="password" className={classes.InputSt} name="password" value={user.password} onChange={this.handleChange} />
+                                            {submitted && !user.password &&
+                                                <div className="help-block">Password is required</div>
+                                            }
+                                        </div>
 
-                    <div className={'form-group' + (submitted && !user.image_photo ? ' has-error' : '')}>
-                        <label htmlFor="profile-picture">Default Profile Picture</label>
-                        <ImagePicker 
-                            images={imageList.map((image, i) => ({src: image, value: i+1,}))}                      //save title or path of picture
-                            onPick={this.onPick}
-                        />
-                        {submitted && !user.image_photo && <div className="help-block">Default image is required</div>}
-                        
-                    </div>
+                                        <div className= {'form-group' + (submitted && !user.image_photo ? ' has-error' : '')}>
+                                            <ImagePicker className={classes.Image}
+                                                images={imageList.map((image, i) => ({src: image, value: i+1,}))}                      //save title or path of picture
+                                                onPick={this.onPick}
+                                            />
+                                            {submitted && !user.image_photo && <div className="help-block">Default image is required</div>}
+                                            
+                                        </div>
 
-                    <div className="form-group">
-                        <button className="btn btn-primary">Register</button>
-                        {registering && 
-                            <img alt="imagenes_de_registro" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
-                        }
-                        <Link to="/login" className="btn btn-link">Cancel</Link>
+                                        <div className={["form-group",classes.PtOnez].join(' ')}>
+                                            <button className={[classes.Btn,classes.BtnP,classes.BtnG].join(' ')}>Register</button>
+                                            {registering && 
+                                                <img alt="imagenes_de_registro" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+                                            }
+                                            <button className={[classes.Btn,classes.BtnP,classes.BtnG].join(' ')}><Link to="/login">Cancel</Link></button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </form>
-            </div>
+                    <PageFooter />
+                    </Layout>
+                </div>
         );
     }
 }

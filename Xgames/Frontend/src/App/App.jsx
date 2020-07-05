@@ -32,7 +32,6 @@ class App extends React.Component {
                         {alert.message &&
                             <div className={`alert ${alert.type}`}>{alert.message}</div>
                         }
-                        <React.StrictMode>
                             <Router history={history}>                                                  
                                 <Switch>
                                     <Route exact path="/"> <HomeView/></Route>
@@ -51,7 +50,6 @@ class App extends React.Component {
                                     <Redirect from="*" to="/" />
                                 </Switch>
                             </Router>
-                        </React.StrictMode>
                     </div>
                 </div>
             </div>

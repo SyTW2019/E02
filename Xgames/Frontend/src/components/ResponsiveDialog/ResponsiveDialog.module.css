@@ -1,0 +1,22 @@
+.buttonCard{
+    border: none;
+    box-shadow: none;
+    font-family: inherit;
+    background-color: transparent;
+    color: #341cac;
+    font-size: 15px;
+    transition: 0.25s;
+    display: inline-flex;
+    align-items: flex-start;
+    text-align: left;
+}
+
+.title{
+    flex: 1;
+}
+
+.moreInfo{
+    vertical-align: left;
+    text-align: left;
+    
+}

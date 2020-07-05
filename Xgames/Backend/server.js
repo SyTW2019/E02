@@ -9,11 +9,17 @@ const request = require("request");
 const cheerio = require("cheerio");
 const mongoose = require("mongoose");
 const config = require("configuration.json");
+const morgan = require('morgan');
 mongoose.Promise = global.Promise;
 
 
 var gamerouter = require('./routes/game');
 var userrouter = require('./routes/user');
+var data_api = require('./api');
+
+mongoose.connection.on('connected', () => {
+    console.log('Mongoose is connected');
+});
 
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
@@ -27,14 +33,18 @@ app.use((req, res, next) => {
 app.use('/',gamerouter);
 app.use('/',userrouter);
 
-
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+//app.use(bodyParser.urlencoded({ extended: false }));
+//app.use(bodyParser.json());
 app.use(cors());
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: false}));
+app.use(morgan('tiny'));
+app.use('/api', data_api);
 
 app.use(jwt());     // use jwt token auth middleware for security
 
-app.use('/users', require('./users/users.controller')); //set routes
+app.use('/users', require('./users/users.controller')); //set routes 
 
 app.use(errorHandler);
     

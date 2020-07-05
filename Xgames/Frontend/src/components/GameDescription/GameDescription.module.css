@@ -1,0 +1,59 @@
+.title{
+    font-size: 150%;
+    margin: 0 0 15px;
+    font-weight: bold;
+}
+
+.modalClose {
+    color: #2364BD;
+    line-height: 100px;
+    font-size: 130%;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 0;
+    width: 90px;
+    text-decoration: none;
+}
+.modalClose:hover{
+    color: black;
+}
+
+.textBadge{
+    border-color: #8c8;
+    color: #8c8;
+    text-transform: uppercase;
+    font-size: .80em;
+    padding: .30em 1.15em .30em 1.1em;
+    font-weight: bold;
+    border: 2px solid;
+    background: #fff; 
+    margin: 0 auto;
+    margin-bottom: 0.8em;
+    align-items: center;
+    width: 35%;
+
+
+}
+
+.shopDisplay{
+    padding-top: 20px;
+    padding-bottom: 5px;
+    flex-direction: row;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    }
+.shopDisplay p{
+    font-weight: bold;
+    padding-left: 10px;
+    padding-right: 10px; 
+}
+
+.description{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-weight: bold;
+    
+}

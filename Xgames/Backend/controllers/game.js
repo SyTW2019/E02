@@ -1,7 +1,7 @@
 'use strict'
 
 var validator = require('validator');
-var Game = require('../models/game');
+var Game = require('../models/game.model');
 
 var controller = {
 
