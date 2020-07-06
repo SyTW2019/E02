@@ -16,49 +16,53 @@ class GameDescription extends Component {
         this.handleClick = this.handleClick.bind(this);
     }
 
-
-      
-  
       handleClick = (event) => {
-        const payload = {
-            gameStore: this.state.gameDetails.gameStore, 
-            gameTitle: this.state.gameDetails.gameTitle,
-            gamePrice: this.state.gameDetails.gamePrice,
-            imageSrc: this.state.gameDetails.imageSrc,
-            dataCategory: this.state.gameDetails.dataCategory,
-            gameLink: this.state.gameDetails.gameLink,
-            description: this.state.gameDetails.description,
-        };
-        console.log(payload);
-        if(this.state.favorite == true){
-           // from true to false check if exists and remove from db
-            var index = this.state.userData.wantedVideoGames.findIndex(obj_ => obj_.gameTitle == this.state.gameDetails.gameTitle && obj_.dataCategory == this.state.gameDetails.dataCategory);
-            this.state.userData.wantedVideoGames.splice(index,1);
 
+        if (this.state.userData === null){
+            alert('Inicia sesion para añadir juego como favorito!');
         }
-        else if(this.state.favorite == false){
-            if((this.state.userData.wantedVideoGames.some(item => item.gameTitle == payload.gameTitle && item.dataCategory == payload.dataCategory)) == false)
-                this.state.userData.wantedVideoGames.push(payload);
+        else{
+            const payload = {
+                gameStore: this.state.gameDetails.gameStore, 
+                gameTitle: this.state.gameDetails.gameTitle,
+                gamePrice: this.state.gameDetails.gamePrice,
+                imageSrc: this.state.gameDetails.imageSrc,
+                dataCategory: this.state.gameDetails.dataCategory,
+                gameLink: this.state.gameDetails.gameLink,
+                description: this.state.gameDetails.description,
+            };
+            console.log(payload);
+            if(this.state.favorite == true){
+               // from true to false check if exists and remove from db
+                var index = this.state.userData.wantedVideoGames.findIndex(obj_ => obj_.gameTitle == this.state.gameDetails.gameTitle && obj_.dataCategory == this.state.gameDetails.dataCategory);
+                this.state.userData.wantedVideoGames.splice(index,1);
+    
+            }
+            else if(this.state.favorite == false){
+                if((this.state.userData.wantedVideoGames.some(item => item.gameTitle == payload.gameTitle && item.dataCategory == payload.dataCategory)) == false)
+                    this.state.userData.wantedVideoGames.push(payload);
+            }
+    
+            console.log(this.state.userData);
+            this.setState({
+                favorite: !this.state.favorite
+              });
+            
+            const data_payload = this.state.userData;
+            axios({
+                url: 'http://localhost:4000/api/save_favorite',
+                method: 'POST',
+                data: data_payload,
+                })
+                .then(() => {
+                console.log('Data has been sent!');
+                })
+                .catch(() => {
+                console.log('Internal servor error!');
+                });    
+                event.preventDefault(); 
         }
-
-        console.log(this.state.userData);
-        this.setState({
-            favorite: !this.state.favorite
-          });
-        
-        const data_payload = this.state.userData;
-        axios({
-            url: 'http://localhost:4000/api/save_favorite',
-            method: 'POST',
-            data: data_payload,
-            })
-            .then(() => {
-            console.log('Data has been sent!');
-            })
-            .catch(() => {
-            console.log('Internal servor error!');
-            });    
-            event.preventDefault();    
+           
       }
     
     getStoreLogo = (name) => {

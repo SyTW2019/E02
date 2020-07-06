@@ -1,4 +1,0 @@
-{
-    "secret" : "Este es un secreto que nadie puede saber",
-    "connectionString" : "mongodb+srv://admin-proyecto:e02sytw20192020@sytw-y7olq.azure.mongodb.net/test?ssl=true&authSource=admin&retryWrites=true&w=majority"
-}

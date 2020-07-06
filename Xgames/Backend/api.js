@@ -48,8 +48,10 @@ router.post('/save', (req,res) => {
 
 router.post('/save_favorite', (req,res) => {
     console.log('Body: ', req.body);
-    var user = new User(req.body);
 
+    User.remove({ username: req.body.username});
+    var user = new User(req.body);
+    console.log('bbcc');
     user.save((error) => {
         if(error){
             res.status(500).json({ msg: 'Internal service error'});

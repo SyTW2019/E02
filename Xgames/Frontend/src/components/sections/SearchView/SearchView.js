@@ -34,29 +34,39 @@ class SearchView extends Component{
 
   componentDidMount = () => {
       this.getGameData();
-      //this.getUserData();
+      this.getUserData();
   };
 
 
-  /*getUserData = () => {
+  getUserData = () => {
     axios.get('http://localhost:4000/api/get_user')
     .then( (response) =>{
       const data = response.data;
+      const current_user_data = JSON.parse(localStorage.getItem('user'));
+      console.log(data);
       // check with current user logged in
-      for(var i=0;i<data.length;i++){
-          if(data[i].username == "current_user"){
+
+      if(current_user_data !== null){
+        for(var i=0;i<data.length;i++){
+          if(data[i].username == current_user_data.username){
               this.setState({
-                  userFavoriteGames: data[i].wantedVideoGames
+                userFavoriteGames: current_user_data.wantedVideoGames,
                 })
           }
       }
       console.log('Data received');
+      }
+      else{
+        this.setState({
+          userFavoriteGames: '',
+        })
+      }
       
     })
     .catch( () => {
-      alert('Error retrieving data');
+      alert('Error retrieving data!');
     })
-  }*/
+  }
 
    getGameData = () => {
       axios.get('http://localhost:4000/api/')
@@ -83,14 +93,14 @@ class SearchView extends Component{
     }
 
 
-    /*checkIfGameisAlreadyFavorite = (elem) => {
-      for(var i=0;i<this.userFavoriteGames;i++){
-        if(elem.gameTitle == userFavoriteGames[i].gameTitle && elem.dataCategory == userFavoriteGames[i].dataCategory){
+    checkIfGameisAlreadyFavorite = (elem) => {
+      for(var i=0;i<this.state.userFavoriteGames.length;i++){
+        if(elem.gameTitle == this.state.userFavoriteGames[i].gameTitle && elem.dataCategory == this.state.userFavoriteGames[i].dataCategory){
           return true;
         }
       }
       return false;
-    }*/
+    }
     
     displayGame = (games) => {
       

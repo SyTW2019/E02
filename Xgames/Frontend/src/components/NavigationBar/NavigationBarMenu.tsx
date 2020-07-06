@@ -10,6 +10,11 @@ const NavigationBarMenu: React.FC = () => {
   const buttonRef = useRef<HTMLButtonElement>(null);
   const history = useHistory();
   const userMenuId = "user-menu";
+  var userLogged = localStorage.getItem('user');
+  var loggedIn = false;
+  if(userLogged !== null){
+      loggedIn = true;
+  }
   const userMenu = (
     <Menu
       anchorEl={buttonRef.current}
@@ -22,13 +27,17 @@ const NavigationBarMenu: React.FC = () => {
         setMenuOpen(false);
       }}
     >
-      <MenuItem onClick={() => history.push("/login")}>
-        {"Iniciar Sesión"}
-      </MenuItem>
-
-      <MenuItem onClick={() => history.push("/register")}>
-        {"Registrarse"}
-      </MenuItem>
+      {loggedIn === false ? 
+      <div> <MenuItem onClick={() => history.push("/login")}>
+      {"Iniciar Sesión"}
+    </MenuItem>
+    <MenuItem onClick={() => history.push("/register")}>
+      {"Registrarse"}
+    </MenuItem>
+        </div> : <MenuItem onClick={() => history.push("/")}>
+        {"Salir"}
+      </MenuItem>}
+      
     </Menu>
   );
 
