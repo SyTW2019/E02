@@ -2,6 +2,10 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "npm": "5.7.1",
+    "node": "9.5.0"
+  },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.13.1",
     "@material-ui/core": "^4.9.9",
@@ -39,7 +43,7 @@
     "server": "node server.js",
     "client": "npm start Frontend",
     "dev": "concurrently \"npm run Backend\" \"npm run Frontend\"",
-    "heroku-postbuild":"NPM_CONFIG_PRODUCTION=false npm install --prefix Frontend && npm run build --prefix Frontend"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix Frontend && npm run build --prefix Frontend"
   },
   "eslintConfig": {
     "extends": "react-app"

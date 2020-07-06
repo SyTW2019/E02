@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "Backend for React App",
   "main": "index.js",
+  "engines": {
+    "npm": "5.7.1",
+    "node": "9.5.0"
+  },
   "scripts": {
     "start": "node ./server.js",
     "start-dev": "nodemon ./server.js",
