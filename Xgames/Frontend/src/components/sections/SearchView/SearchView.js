@@ -1,15 +1,9 @@
 import React, {Component} from 'react';
 import '../../../assets/css/App.css';
 import GameCard from '../../GameCard/GameCard';
-<<<<<<< HEAD
-import Layout from '../../../hoc/Layout/Layout';
-import Header from '../../Header/Header';
-=======
->>>>>>> dev-vlad
 import Slider from '../../Slider/Slider';
 import Layout from '../../../hoc/Layout/Layout';
 import PageFooter from '../../PageFooter/PageFooter';
-import Card from '../../Card/Card';
 import axios from 'axios';
 import classes from './SearchView.module.css';
 import Aux from '../../../hoc/Aux/Aux';
@@ -150,14 +144,6 @@ class SearchView extends Component{
   render(){
     return( 
       <div>
-<<<<<<< HEAD
-          <Layout>
-            <div>
-              <input class="form-control"  value={this.state.text} onChange={(text) => this.filter(text)}/>
-              {this.state.producto.map( item => <GameCard key={item} details={item} producto={this.state.producto[item]}/>)}
-            </div>
-          </Layout>
-=======
       <Layout activePage={"/search"}>
       <Slider pageTitle={'Busca tu videojuego favorito'}/>
       <nav className={classes.ProductFilter}>
@@ -183,7 +169,6 @@ class SearchView extends Component{
             <option value="Category">Category</option>
           </select>
         </div>
->>>>>>> dev-vlad
       </div>
     </nav>
 

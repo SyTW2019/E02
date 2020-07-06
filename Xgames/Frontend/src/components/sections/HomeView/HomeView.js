@@ -180,40 +180,6 @@ class HomeView extends Component{
 
     return(
       <div>
-<<<<<<< HEAD
-      <Layout />
-      <Slider />
-      <Grid container direction="row" alignContent='center' alignItems='flex-start' spacing={3} >
-        <Grid item xs={12} sm={12} md={12} xl={12} lg={12}>
-          <Grid container alignContent='flex-start' justify='flex-start' alignItems='flex-start' spacing={3} >
-          <Grid item xs={12} sm={12} md={12} xl={12} lg={12} justify='center'>
-            <h1>Titulos mas buscados</h1>
-          </Grid>
-          <Grid className={classes.CardList} container direction="row" justify="center" alignItems="center">
-              {Object.keys(this.state.gameCardsData).map(key => <GameCard className={classes.CardInformation} key={key} index={key} details={this.state.gameCardsData[key]}/>)}
-          </Grid>
-          </Grid>
-          <Grid container alignContent='flex-start' justify='flex-start' alignItems='flex-start' spacing={3} >
-          <Grid item xs={12} sm={12} md={12} xl={12} lg={12} justify='center'>
-            <h1>Rebajados</h1>
-          </Grid>
-          <Grid className={classes.CardList} container direction="row" justify="center" alignItems="center">
-              {Object.keys(this.state.gameCardsData).map(key => <GameCard className={classes.CardInformation} key={key} index={key} details={this.state.gameCardsData[key]}/>)}
-          </Grid>
-          </Grid>
-          <Grid container alignContent='flex-start' justify='flex-start' alignItems='flex-start' spacing={3} >
-          <Grid item xs={12} sm={12} md={12} xl={12} lg={12} justify='center'>
-            <h1>Proximos Lanzamientos</h1>
-          </Grid>
-          <Grid className={classes.CardList} container direction="row" justify="center" alignItems="center">
-              {Object.keys(this.state.gameCardsData).map(key => <GameCard className={classes.CardInformation} key={key} index={key} details={this.state.gameCardsData[key]}/>)}
-          </Grid>
-          </Grid>
-        </Grid>
-      </Grid>
-      <PageFooter />
-    </div>
-=======
       <Layout activePage={"/"}>
       <Slider pageTitle={["Bienvenido a ", <strong>X</strong>, " Games. Tu página de Videojuegos"]}/>
       <div>
@@ -241,7 +207,6 @@ class HomeView extends Component{
       <PageFooter />
       </Layout>
       </div>
->>>>>>> dev-vlad
     );
   }
 }

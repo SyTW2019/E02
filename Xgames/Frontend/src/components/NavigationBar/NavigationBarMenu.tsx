@@ -1,7 +1,6 @@
 import React, { useState, Fragment, useRef } from "react";
 import { Menu, MenuItem, IconButton } from "@material-ui/core";
 import AccountCircle from "@material-ui/icons/AccountCircle";
-import SignUpView from '../sections/SignUpView/SignUpView';
 import { useHistory } from "react-router-dom";
 
 

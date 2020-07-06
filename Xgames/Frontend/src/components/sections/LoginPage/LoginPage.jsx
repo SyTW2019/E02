@@ -9,9 +9,10 @@ import Layout from '../../../hoc/Layout/Layout';
 import PageFooter from '../../PageFooter/PageFooter';
 import { userActions } from '../../../_actions';
 import classes from './LoginPage.module.css';
+import HomeView from '../HomeView/HomeView';
 
 
-export class LoginPage extends React.Component {
+export class LoginPage extends HomeView {
 
     constructor(props) {
         super(props);
@@ -41,6 +42,7 @@ export class LoginPage extends React.Component {
             this.props.login(username, password);
             this.setState({ loggedIn: true});
         }
+        //super(this.state);
         event.preventDefault();
     }
 
