@@ -34,7 +34,12 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "client-install": "npm install Frontend",
+    "server": "node server.js",
+    "client": "npm start Frontend",
+    "dev": "concurrently \"npm run Backend\" \"npm run Frontend\"",
+    "heroku-postbuild":"NPM_CONFIG_PRODUCTION=false npm install --prefix Frontend && npm run build --prefix Frontend"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -50,5 +55,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "proxy": "http://localhost:4000"
 }
