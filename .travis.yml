@@ -1,30 +1,24 @@
 language: node_js
 dist: trusty
 node_js:
-  - 'node'
-  - 'lts/*'
-      
+- node
+- lts/*
 script:
-  - npm run test
-  - npm run build
-  - sonar-scanner -X
+- npm test
 
 before_install:
-  - cd Xgames/Frontend/
-  - npm install
+- cd Xgames/Frontend/
+- npm install
 notifications:
-  slack: proyecto-sytw:cVWM9OYylOMopcZIydrXs9yf
+  slack: sytw:zOwATE9j5xq2yo6Jqb8y6YtR#2019-e02
   email:
     on_failure: change
-
-after_success: 'npm run coveralls'
-
+after_success: npm run coveralls
 cache:
   directories:
-    - node_modules
-    
+  - node_modules
 addons:
   sonarcloud:
-    organization: "sytw2019"
+    organization: sytw2019
     token:
-      secure: ${PRUEBA} 
+      secure: Q4Bu3YK4p9dsE1GeLwOBKZv8JAlGerPvtN7fXTBdJ8Z7FRMZIOUKHWCLkri2sdbk/W3csv3lPOAZUZBAKX+Ne0DkhV5yGB5lk3AMKUtS6j0DGyVZNPahepTzmN9KDHSnJwCl/B5d+nlJtSvQy3Wtk/RH4KTL5jCrzxDh9t4Mohs5U5VDw2sYJNxoQUkg07G39/AigaFn3wIwFOu5KXMJ9t13pbO2V1rajLrnHpo+A3+0V4hyqwvgrthIw3C6oSi8aJ/ACMlJgfzQck6PUcGmMKQRPC/tOVN3Me+JA6OlvKb2TruOdvMnpjtGwZXIqiNqPx20jHeQ6cQmlWLwxj3Fq6flDu/YpUtS2fesuNxaNChI8aA5aretZL5kBc+zQFMBNr2NzEhs6GxXuK60QJDx0C4EbvrdU7K3u50HFfsyXbm4o5z7fb7RGvqeIrKAndnC74aTIBkxQ4s4ml0LVDsRsXircIBZinENnSpTvJU0/104wdfYVGBcCBxqLuHnueH0pk0340Ne+3vrs97/xD0pB7u2RAB9SNgpGbg1oTH9Od3/jLYnlfAH1bcgkXblMGDClMTMm1zhJW9x4QWWmxWTwb0GdiR8YtfNqXchrbtVWdTCeG0TrjfPfmWd6sRE+8OyJl3539NEZy6/KS3GedO0Iw4gfMftQJ/pbB71wgzFLww=
