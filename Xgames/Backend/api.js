@@ -3,7 +3,9 @@ const router = express.Router();
 const mongoose = require("mongoose");
 const config = require("./configuration.json");
 const db = require('./_helpers/game_db');
+const u_db = require('./_helpers/db');
 const Game = db.Game;
+const User = u_db.User;
 
 
 router.get('/', (req, res) => {
@@ -14,7 +16,18 @@ router.get('/', (req, res) => {
 
     })
     .catch((err) => {
-        console.log('error: ', err);
+        console.log('Error: ', err);
+    })
+})
+
+router.get('/get_user', (req,res) => {
+    
+    User.find({ }).then((data) => {
+        console.log('Users: ',data);
+        res.json(data);
+    })
+    .catch((err) => {
+        console.log('Error: ',err);
     })
 })
 
@@ -23,6 +36,21 @@ router.post('/save', (req,res) => {
     var game = new Game(req.body);
 
     game.save((error) => {
+        if(error){
+            res.status(500).json({ msg: 'Internal service error'});
+        }
+
+        return res.json({
+            msg: 'The data has been saved'
+        });
+    })
+});
+
+router.post('/save_favorite', (req,res) => {
+    console.log('Body: ', req.body);
+    var user = new User(req.body);
+
+    user.save((error) => {
         if(error){
             res.status(500).json({ msg: 'Internal service error'});
         }

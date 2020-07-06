@@ -15,6 +15,7 @@ function getActivePage (activePage) {
                 <NavigationItem link="/newgame">Añadir Juego</NavigationItem>
                 <NavigationItem link="/search">Buscador</NavigationItem>
                 <NavigationItem link="/noticias">Noticias</NavigationItem>
+                <NavigationItem link="/user_profile">User Profile</NavigationItem>
                 <li className={classes.UserProfile}><NavigationBarMenu /></li>
             </ul>);
         case "/foro":
@@ -25,6 +26,7 @@ function getActivePage (activePage) {
             <NavigationItem link="/newgame">Añadir Juego</NavigationItem>
             <NavigationItem link="/search">Buscador</NavigationItem>
             <NavigationItem link="/noticias">Noticias</NavigationItem>
+            <NavigationItem link="/user_profile">User Profile</NavigationItem>
             <li className={classes.UserProfile}><NavigationBarMenu /></li>
             </ul>
             );
@@ -36,6 +38,7 @@ function getActivePage (activePage) {
             <NavigationItem link="/newgame" active>Añadir Juego</NavigationItem>
             <NavigationItem link="/search">Buscador</NavigationItem>
             <NavigationItem link="/noticias">Noticias</NavigationItem>
+            <NavigationItem link="/user_profile">User Profile</NavigationItem>
             <li className={classes.UserProfile}><NavigationBarMenu /></li>
             </ul>
             );
@@ -47,6 +50,7 @@ function getActivePage (activePage) {
             <NavigationItem link="/newgame">Añadir Juego</NavigationItem>
             <NavigationItem link="/search" active>Buscador</NavigationItem>
             <NavigationItem link="/noticias">Noticias</NavigationItem>
+            <NavigationItem link="/user_profile">User Profile</NavigationItem>
             <li className={classes.UserProfile}><NavigationBarMenu /></li>
             </ul>
             );
@@ -58,6 +62,7 @@ function getActivePage (activePage) {
             <NavigationItem link="/newgame">Añadir Juego</NavigationItem>
             <NavigationItem link="/search">Buscador</NavigationItem>
             <NavigationItem link="/noticias" active>Noticias</NavigationItem>
+            <NavigationItem link="/user_profile">User Profile</NavigationItem>
             <li className={classes.UserProfile}><NavigationBarMenu /></li>
             </ul>
             );
@@ -69,6 +74,7 @@ function getActivePage (activePage) {
             <NavigationItem link="/newgame">Añadir Juego</NavigationItem>
             <NavigationItem link="/search">Buscador</NavigationItem>
             <NavigationItem link="/noticias">Noticias</NavigationItem>
+            <NavigationItem link="/user_profile">User Profile</NavigationItem>
             <li className={classes.UserProfile}><NavigationBarMenu /></li>
             </ul>
             );

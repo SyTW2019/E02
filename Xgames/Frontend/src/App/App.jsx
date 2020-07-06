@@ -13,6 +13,7 @@ import { CRegisterPage } from '../components/sections/RegisterPage';
 import HomeView from '../components/sections/HomeView/HomeView';
 import SearchView from '../components/sections/SearchView/SearchView';
 import NewGameView from '../components/sections/NewGameView/NewGameView';
+import UserProfileView from '../components/sections/UserProfileView/UserProfileVIew';
 
 class App extends React.Component {
     constructor(props) {
@@ -39,6 +40,7 @@ class App extends React.Component {
                                     <Route path="/register" component={CRegisterPage} />
                                     <Route path="/newgame"><NewGameView /></Route>
                                     <Route path="/search"><SearchView /></Route>
+                                    <Route path="/user_profile"><UserProfileView/></Route>
                                     <Route path='/noticias' component={() => { 
                                         window.location.href = 'https://vandal.elespanol.com/noticias/videojuegos'; 
                                         return null;
