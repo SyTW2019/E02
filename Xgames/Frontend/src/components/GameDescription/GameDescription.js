@@ -1,12 +1,66 @@
 import React, { Component } from 'react';
 import Aux from '../../hoc/Aux/Aux';
 import classes from './GameDescription.module.css';
+import axios from 'axios';
+
+
 class GameDescription extends Component {
 
-    componentDidUpdate(){
-        console.log('[GameDescription] Will Update');
+    constructor(props) {
+        super(props);
+        this.state = {     
+            favorite: this.props.favorite,
+            userData: JSON.parse(localStorage.getItem('user')),
+            gameDetails: this.props.games,
+        };
+        this.handleClick = this.handleClick.bind(this);
     }
 
+
+      
+  
+      handleClick = (event) => {
+        const payload = {
+            gameStore: this.state.gameDetails.gameStore, 
+            gameTitle: this.state.gameDetails.gameTitle,
+            gamePrice: this.state.gameDetails.gamePrice,
+            imageSrc: this.state.gameDetails.imageSrc,
+            dataCategory: this.state.gameDetails.dataCategory,
+            gameLink: this.state.gameDetails.gameLink,
+            description: this.state.gameDetails.description,
+        };
+        console.log(payload);
+        if(this.state.favorite == true){
+           // from true to false check if exists and remove from db
+            var index = this.state.userData.wantedVideoGames.findIndex(obj_ => obj_.gameTitle == this.state.gameDetails.gameTitle && obj_.dataCategory == this.state.gameDetails.dataCategory);
+            this.state.userData.wantedVideoGames.splice(index,1);
+
+        }
+        else if(this.state.favorite == false){
+            if((this.state.userData.wantedVideoGames.some(item => item.gameTitle == payload.gameTitle && item.dataCategory == payload.dataCategory)) == false)
+                this.state.userData.wantedVideoGames.push(payload);
+        }
+
+        console.log(this.state.userData);
+        this.setState({
+            favorite: !this.state.favorite
+          });
+        
+        const data_payload = this.state.userData;
+        axios({
+            url: 'http://localhost:4000/api/save_favorite',
+            method: 'POST',
+            data: data_payload,
+            })
+            .then(() => {
+            console.log('Data has been sent!');
+            })
+            .catch(() => {
+            console.log('Internal servor error!');
+            });    
+            event.preventDefault();    
+      }
+    
     getStoreLogo = (name) => {
 
         if(name == 'MediaMarkt'){
@@ -59,6 +113,8 @@ class GameDescription extends Component {
 
     render(){
         
+        const text = this.state.favorite ? 'Has puesto como favorito este juego' : 'Este juego no esta puesto como favorito';
+        const label = this.state.favorite ? 'Favorito' : 'No favorito';
         var games_ = this.setNotAvailable(this.props.games);
         if(games_ == null) return null;
         return(
@@ -83,6 +139,10 @@ class GameDescription extends Component {
                     </div>
 
                 ))}
+                <div className={classes.favoriteContainer}>
+                    <button className={classes.btn} onClick={this.handleClick}>{label}</button>
+                    <p>{text}</p>
+                </div>
             </Aux>
         );
     }

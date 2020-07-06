@@ -22,6 +22,7 @@ class SearchView extends Component{
         sortType: 'Default',
         filterValue: '',
         showDetails: 0,
+        userFavoriteGames: [],
         
     };
     this.filterCategory = this.filterCategory.bind(this);
@@ -33,7 +34,29 @@ class SearchView extends Component{
 
   componentDidMount = () => {
       this.getGameData();
+      //this.getUserData();
   };
+
+
+  /*getUserData = () => {
+    axios.get('http://localhost:4000/api/get_user')
+    .then( (response) =>{
+      const data = response.data;
+      // check with current user logged in
+      for(var i=0;i<data.length;i++){
+          if(data[i].username == "current_user"){
+              this.setState({
+                  userFavoriteGames: data[i].wantedVideoGames
+                })
+          }
+      }
+      console.log('Data received');
+      
+    })
+    .catch( () => {
+      alert('Error retrieving data');
+    })
+  }*/
 
    getGameData = () => {
       axios.get('http://localhost:4000/api/')
@@ -59,6 +82,15 @@ class SearchView extends Component{
       this.setState({ showDetails: 0 });
     }
 
+
+    /*checkIfGameisAlreadyFavorite = (elem) => {
+      for(var i=0;i<this.userFavoriteGames;i++){
+        if(elem.gameTitle == userFavoriteGames[i].gameTitle && elem.dataCategory == userFavoriteGames[i].dataCategory){
+          return true;
+        }
+      }
+      return false;
+    }*/
     
     displayGame = (games) => {
       
@@ -69,6 +101,7 @@ class SearchView extends Component{
           <GameCard key={ix} details = {elem}
           description={this.getDescription(elem.description)} getInfo={() => this.getInfoHandler(elem._id)}/>
           <Modal show={this.state.showDetails === elem._id} modalClosed={() => this.moreInfoCancelHandler(elem._id)}>
+            { /* <GameDescription games = {elem} favorite={this.checkIfGameisAlreadyFavorite} description={this.getDescription(elem.description)}/> */}
             <GameDescription games = {elem} description={this.getDescription(elem.description)}/>
           </Modal>
         </Aux>

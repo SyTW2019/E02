@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100&display=swap');
+
+
+.userBackground{
+
+    background: rgb(87,85,121);
+    background: linear-gradient(90deg, rgba(87,85,121,1) 7%, rgba(56,56,84,1) 33%, rgba(70,157,175,1) 76%);
+
+}
+.userWrapper{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 450px;
+    display: flex;
+    box-shadow: 0 1px 20px 0 rgba(69,90,100,0.08);
+
+}
+
+.leftPart{
+    width: 35%;
+    background: linear-gradient(to right, #01a9ac, #01dbdf);
+    padding: 30px 25px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    text-align: center;
+    color: #fff;
+
+}
+
+.leftImage{
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.name{
+    margin-bottom: 10px;
+}
+
+.userName{
+    font-size: 12px;
+}
+
+.rightPart{
+    width: 65%;
+    background: #fff;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding: 30px 25px;
+}
+
+.info, .wantedVideoGames{
+    margin-bottom: 25px;
+}
+
+.rightTitle{
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #e0e0e0;
+    color: #353c4e;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+}
+
+.infoData, .wantedData{
+    display: flex;
+    justify-content: space-between;
+}
+
+.data{
+    width: 45%;
+}
+
+.tit{
+    color: #353c4e;
+    margin-bottom: 5px;
+}
+.titDate{
+    color: #353c4e;
+    margin-bottom: 7px;
+    font-size: 16px;
+}
+
+.par{
+    font-size: 13px;
+    margin-bottom: 10px;
+    color: #919aa3;
+}

@@ -25,6 +25,7 @@ class HomeView extends Component{
         filteredGames: [],
         filterValue: '',
         showDetails: 0,
+        userFavoriteGames: [],
         
     };
     this.getInfoHandler = this.getInfoHandler.bind(this);
@@ -35,6 +36,7 @@ class HomeView extends Component{
 
   componentDidMount = () => {
     this.getGameData();
+    this.getUserData();
   };
 
     getGameData = () => {
@@ -73,6 +75,26 @@ class HomeView extends Component{
       })
     }
 
+    getUserData = () => {
+      axios.get('http://localhost:4000/api/get_user')
+      .then( (response) =>{
+        const data = response.data;
+        const current_user_data = JSON.parse(localStorage.getItem('user'));
+        console.log(data);
+        // check with current user logged in
+        for(var i=0;i<data.length;i++){
+            if(data[i].username == current_user_data.username){
+                this.setState({
+                  userFavoriteGames: current_user_data.wantedVideoGames,
+                  })
+            }
+        }
+        console.log('Data received');
+      })
+      .catch( () => {
+        alert('Error retrieving data');
+      })
+    }
 
     getMostPopGames = (games) => {
       if (!games.length) return null;
@@ -146,6 +168,15 @@ class HomeView extends Component{
       return category_games;
     }
 
+    checkIfGameisAlreadyFavorite = (elem) => {
+      for(var i=0;i<this.state.userFavoriteGames.length;i++){
+        if(elem.gameTitle == this.state.userFavoriteGames[i].gameTitle && elem.dataCategory == this.state.userFavoriteGames[i].dataCategory){
+          return true;
+        }
+      }
+      return false;
+    }
+
     displayGame = (games) => {
       
       if (!games.length) return null;
@@ -155,7 +186,8 @@ class HomeView extends Component{
           <GameCard key={ix} details = {elem}
           description={this.getDescription(elem.description)} getInfo={() => this.getInfoHandler(elem._id)}/>
           <Modal show={this.state.showDetails === elem._id} modalClosed={() => this.moreInfoCancelHandler(elem._id)}>
-            <GameDescription games = {elem} description={this.getDescription(elem.description)}/>
+            <GameDescription games = {elem} favorite={this.checkIfGameisAlreadyFavorite(elem)} description={this.getDescription(elem.description)}/>
+            { /*<GameDescription games = {elem} description={this.getDescription(elem.description)}/> */}
           </Modal>
         </Aux>
       ));
