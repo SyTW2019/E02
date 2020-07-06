@@ -7,13 +7,14 @@
     "@material-ui/core": "^4.9.9",
     "@material-ui/icons": "^4.9.1",
     "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
+    "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.1.2",
+    "@types/jest": "^26.0.3",
     "@types/react-router": "^5.1.5",
     "@types/react-router-dom": "^5.1.5",
     "axios": "^0.19.2",
     "font-awesome": "^4.7.0",
-    "material-ui-popup-state": "^1.6.1",
+    "jest": "^26.1.0",
     "mdbreact": "^4.25.5",
     "react": "^16.13.1",
     "react-bootstrap": "^1.0.1",
@@ -29,12 +30,14 @@
     "redux": "^4.0.5",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
+    "ts-jest": "^26.1.1",
     "typescript": "^3.8.3"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "jest",
+    "test:watch": "jest --watch",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
