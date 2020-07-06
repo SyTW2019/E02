@@ -10,7 +10,7 @@ script:
   - sonar-scanner -X
 
 before_install:
-  - cd Videogames
+  - cd Xgames/Frontend/
   - npm install
 notifications:
   slack: proyecto-sytw:cVWM9OYylOMopcZIydrXs9yf
