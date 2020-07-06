@@ -1,10 +1,7 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 import classes from './UserProfileView.module.css';
-import axios from 'axios';
-import Slider from '../../Slider/Slider';
 import Layout from '../../../hoc/Layout/Layout';
-import PageFooter from '../../PageFooter/PageFooter';
-import imageSix from "../../../_constants/profile_picture/img6.png";
+
 
 
 export default class NewGameView extends React.Component {
@@ -47,13 +44,13 @@ export default class NewGameView extends React.Component {
 
     getStoreLogo = (name) => {
 
-        if(name == 'MediaMarkt'){
+        if(name === 'MediaMarkt'){
             return 'https://d1yjjnpx0p53s8.cloudfront.net/styles/logo-thumbnail/s3/0022/7315/brand.gif?itok=D991v9Sj';
         }
-        else if(name == 'PcComponentes'){
+        else if(name === 'PcComponentes'){
             return 'https://s03.s3c.es/imag/_v0/770x420/e/0/2/Nuevo-Logo-PcComponentes-770.jpg';
         }
-        else if(name == 'ElCorteIngles'){
+        else if(name === 'ElCorteIngles'){
             return 'https://seeklogo.com/images/E/El_Corte_Ingles-logo-93BAD68F53-seeklogo.com.png';
         }
         else{
@@ -63,13 +60,13 @@ export default class NewGameView extends React.Component {
 
     getCategoryLogo = (name) => {
         
-        if(name == 'Xbox One'){
+        if(name === 'Xbox One'){
             return 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Xbox_one_logo.svg/1200px-Xbox_one_logo.svg.png';
         }
-        else if(name == 'PS4'){
+        else if(name === 'PS4'){
             return 'https://i.pinimg.com/originals/44/60/0a/44600a9ca52c882fa910b63b760ab8f5.png';
         }
-        else if(name == 'Nintendo Switch'){
+        else if(name === 'Nintendo Switch'){
             return 'https://upload.wikimedia.org/wikipedia/commons/5/5d/Nintendo_Switch_Logo.svg';
         }
     }
@@ -78,9 +75,9 @@ export default class NewGameView extends React.Component {
     getGameDetails = (game) => {
         return game.gameStore.map((game_, index) => (
             <div className={classes.shopDisplay}>
-                <a href={game.gameLink[index]}><img src={this.getStoreLogo(game_)} width="50" height="50"></img></a>
+                <a alt='link game' href={game.gameLink[index]}><img alt='link game' src={this.getStoreLogo(game_)} width="50" height="50"></img></a>
                 <p>{game.gamePrice[index]}</p>
-                <img src={this.getCategoryLogo(game.dataCategory)}  width="50" height="50"></img>
+                <img alt='juego' src={this.getCategoryLogo(game.dataCategory)}  width="50" height="50"></img>
             </div>
 
         ))
@@ -88,6 +85,7 @@ export default class NewGameView extends React.Component {
 
 
     getListOfGames = () => {
+        // eslint-disable-next-line
         this.state.wantedVideogames.map((game, index) => {
             this.getGameDetails(game)
         });
@@ -100,7 +98,7 @@ export default class NewGameView extends React.Component {
             <Layout activePage={"/user_profile"}>
             <div className={classes.userWrapper}>
                 <div className={classes.leftPart}>
-                    <img src={this.state.userImg} alt="User Image" width="100" className={classes.leftImage}/>
+                    <img src={this.state.userImg} alt="Imagen Usuario" width="100" className={classes.leftImage}/>
                     <h4 className={classes.name}>{this.state.userName}</h4>
                     <p className={classes.userName}>{this.state.userUsername}</p>
 

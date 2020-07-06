@@ -6,6 +6,7 @@ class CardHeader extends Component {
 
       const imageSrc = this.props.imageSrc;
       var style = { 
+          // eslint-disable-next-line
           backgroundImage: 'url(' + 'http://' +  imageSrc + ')',
       };
       return (

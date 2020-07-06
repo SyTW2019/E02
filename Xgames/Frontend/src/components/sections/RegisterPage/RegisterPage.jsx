@@ -24,6 +24,7 @@ export class RegisterPage extends React.Component {
                 username: '',
                 email: '',
                 password: '',
+                // eslint-disable-next-line
                 email_regEx: '/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/',
                 image_text: '',
                 image_photo: null,

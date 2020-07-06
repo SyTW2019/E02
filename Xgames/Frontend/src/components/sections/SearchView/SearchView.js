@@ -47,7 +47,7 @@ class SearchView extends Component{
 
       if(current_user_data !== null){
         for(var i=0;i<data.length;i++){
-          if(data[i].username == current_user_data.username){
+          if(data[i].username === current_user_data.username){
               this.setState({
                 userFavoriteGames: current_user_data.wantedVideoGames,
                 })
@@ -94,7 +94,7 @@ class SearchView extends Component{
 
     checkIfGameisAlreadyFavorite = (elem) => {
       for(var i=0;i<this.state.userFavoriteGames.length;i++){
-        if(elem.gameTitle == this.state.userFavoriteGames[i].gameTitle && elem.dataCategory == this.state.userFavoriteGames[i].dataCategory){
+        if(elem.gameTitle === this.state.userFavoriteGames[i].gameTitle && elem.dataCategory === this.state.userFavoriteGames[i].dataCategory){
           return true;
         }
       }
@@ -119,11 +119,12 @@ class SearchView extends Component{
     
 
     filterCategory = (event) => {
-      if(event.target.value == 'All games')
+      if(event.target.value === 'All games')
         var filter = this.state.games;
 
       else
-        var filter = this.state.games.filter(elem => elem.dataCategory == event.target.value);
+        // eslint-disable-next-line
+        var filter = this.state.games.filter(elem => elem.dataCategory === event.target.value);
       
       this.setState({
         filteredGames:filter,
@@ -134,7 +135,7 @@ class SearchView extends Component{
     sortGames = (event) => {
       // sort by name
 
-      if(event.target.value == 'Default'){
+      if(event.target.value === 'Default'){
         var games_ = this.state.games;
         this.setState({
           sortType: event.target.value,
@@ -142,8 +143,9 @@ class SearchView extends Component{
         })
       }
       else{
+        // eslint-disable-next-line
         var games_ = this.state.games;
-      if(event.target.value == 'Name'){
+      if(event.target.value === 'Name'){
         games_.sort(function(a,b){ 
           var x = a.gameTitle < b.gameTitle? -1:1;  
           return x;
@@ -153,7 +155,7 @@ class SearchView extends Component{
         filteredGames: games_,
       })
       }
-      else if(event.target.value == 'Category'){
+      else if(event.target.value === 'Category'){
         games_.sort(function(a,b){ 
           var x = a.dataCategory < b.dataCategory? -1:1;
           return x; 

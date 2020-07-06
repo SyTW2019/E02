@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 import classes from './NewGameView.module.css';
 import axios from 'axios';
 import Slider from '../../Slider/Slider';
@@ -38,20 +38,25 @@ export default class NewGameView extends React.Component {
 
     handleSubmit = (event) => {
 
-      if(this.state.description.length == 0){
+      if(this.state.description.length === 0){
+        // eslint-disable-next-line
         this.state.description = 'Este juego no tiene ninguna descripcion';
       }
 
 
       for(var i=0;i < this.state.listOfVendors.length;i++){
-        if(this.state.listOfVendors[i].gameStore.length == 0){
+        // eslint-disable-next-line
+        if(this.state.listOfVendors[i].gameStore.length === 0){
+          // eslint-disable-next-line
           this.state.listOfVendors[i].gameStore = 'No-Store';
         }
-        if(this.state.listOfVendors[i].gameLink.length == 0){
+        if(this.state.listOfVendors[i].gameLink.length === 0){
+          // eslint-disable-next-line
           this.state.listOfVendors[i].gameLink = '#';
         }
       }
-      if(this.state.imageSrc.length == 0){
+      if(this.state.imageSrc.length === 0){
+        // eslint-disable-next-line
         this.state.imageSrc = 'lac.entrustdatacard.com/-/media/images/video-thumbnails_images/thumb-not-available.png';
       }
 
@@ -59,7 +64,7 @@ export default class NewGameView extends React.Component {
       var gameStore_ = [];
       var gameLink_ = [];
 
-
+      // eslint-disable-next-line
       for(var i=0;i<this.state.listOfVendors.length;i++){
         gamePrice_.push(this.state.listOfVendors[i].gamePrice);
         gameStore_.push(this.state.listOfVendors[i].gameStore);
@@ -124,13 +129,13 @@ export default class NewGameView extends React.Component {
 
     handleInputChange(i, event) {
       let values = [...this.state.listOfVendors];
-      if(event.target.name == "gamePrice"){
+      if(event.target.name === "gamePrice"){
         values[i].gamePrice = event.target.value;
       }
-      if(event.target.name == "gameStore"){
+      if(event.target.name === "gameStore"){
         values[i].gameStore = event.target.value;
       }
-      if(event.target.name == "gameLink"){
+      if(event.target.name === "gameLink"){
         values[i].gameLink = event.target.value;
       }
 
@@ -183,7 +188,7 @@ export default class NewGameView extends React.Component {
                                     <div className={classes.InputGroup}>
                                         <label htmlFor="imageSrc" className={classes.labelTitle}>Direccion de la imagen del juego</label>
                                         <input type="text" className={classes.InputSt} name="imageSrc" value={this.state.imageSrc} onChange={this.handleChange}/>
-                                        <img src={this.state.imageSrc}/>  
+                                        <img alt='direccion imagen' src={this.state.imageSrc}/>  
                                     </div>
 
 

@@ -1,8 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import Button from '@material-ui/core/Button';
 import AutorenewIcon from '@material-ui/icons/Autorenew';
 import Slider from '../../Slider/Slider';
 import Layout from '../../../hoc/Layout/Layout';

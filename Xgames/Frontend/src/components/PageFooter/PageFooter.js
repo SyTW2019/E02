@@ -1,6 +1,6 @@
 import React from 'react';
 import classes from './PageFooter.module.css';
-import { Theme, Container, Grid, Typography, Box } from "@material-ui/core";
+import {Container} from "@material-ui/core";
 import FacebookIcon from "@material-ui/icons/Facebook";
 import TwitterIcon from "@material-ui/icons/Twitter";
 import LinkedInIcon from '@material-ui/icons/LinkedIn';

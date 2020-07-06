@@ -2,9 +2,6 @@ import React, { Component} from 'react';
 import classes from './GameCard.module.css';
 import CardHeader from '../CardHeader/CardHeader';
 import CardBody from '../CardBody/CardBody';
-import ResponsiveDialog from '../ResponsiveDialog/ResponsiveDialog';
-import Modal from '../UI/Modal/Modal';
-import GameDescription from '../GameDescription/GameDescription';
 
 class GameCard extends Component {
     render() {

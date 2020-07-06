@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import Slider from '../../Slider/Slider';
-import { Grid } from '@material-ui/core';
 import Layout from '../../../hoc/Layout/Layout';
 import PageFooter from '../../PageFooter/PageFooter';
 import GameCard from '../../GameCard/GameCard';
@@ -85,7 +84,7 @@ class HomeView extends Component{
 
         if(current_user_data !== null){
           for(var i=0;i<data.length;i++){
-            if(data[i].username == current_user_data.username){
+            if(data[i].username === current_user_data.username){
                 this.setState({
                   userFavoriteGames: current_user_data.wantedVideoGames,
                   })
@@ -111,12 +110,12 @@ class HomeView extends Component{
       var most_popular = [];
       games.sort(function(a,b) {
         if(a.gameRating < b.gameRating) { return 1; }
-        else if (a.gameRating == b.gameRating) { return 0; }
+        else if (a.gameRating === b.gameRating) { return 0; }
         else { return -1; }
       })
 
         for(var i=0;i<games.length;i++){
-          if(games[i].gameLink.length > 1 && games[i].proximamente == 0){
+          if(games[i].gameLink.length > 1 && games[i].proximamente === 0){
               most_popular.push(games[i]);
             }
           }
@@ -132,18 +131,19 @@ class HomeView extends Component{
       var proxGames = []
       var found = false;
         for(var i=0;i<games.length;i++){
-          if(games[i].gameLink.length > 1 && games[i].proximamente == 1){
+          if(games[i].gameLink.length > 1 && games[i].proximamente === 1){
             found = false;
             for(var j=0;j<excludedGames.length;j++){
-              if(excludedGames[j].gameTitle == games[i].gameTitle && excludedGames[j].dataCategory == games[i].dataCategory){
+              if(excludedGames[j].gameTitle === games[i].gameTitle && excludedGames[j].dataCategory === games[i].dataCategory){
                 found = true;
               }
             }
-            if(found == false){
+            if(found === false){
               proxGames.push(games[i]);
             }
           }
         } 
+      // eslint-disable-next-line
       var proxGames = proxGames.slice(0, 4);
       return proxGames;
     }
@@ -155,31 +155,32 @@ class HomeView extends Component{
       var found = false;
       games.sort(function(a,b) {
         if(a.gameRating < b.gameRating) { return 1; }
-        else if (a.gameRating == b.gameRating) { return 0; }
+        else if (a.gameRating === b.gameRating) { return 0; }
         else { return -1; }
       })
 
       for(var i=0;i<games.length;i++){
-        if(games[i].gameLink.length > 1 && games[i].proximamente == 0 && games[i].dataCategory == cat){
+        if(games[i].gameLink.length > 1 && games[i].proximamente === 0 && games[i].dataCategory === cat){
           found = false;
           for(var j=0;j<excludedGames.length;j++){
-            if(excludedGames[j].gameTitle == games[i].gameTitle && excludedGames[j].dataCategory == games[i].dataCategory){
+            if(excludedGames[j].gameTitle === games[i].gameTitle && excludedGames[j].dataCategory === games[i].dataCategory){
               found = true;
             }
           }
-          if(found == false){
+          if(found === false){
 
             category_games.push(games[i]);
           }
         }
         } 
+      // eslint-disable-next-line
       var category_games = category_games.slice(0, 4);
       return category_games;
     }
 
     checkIfGameisAlreadyFavorite = (elem) => {
       for(var i=0;i<this.state.userFavoriteGames.length;i++){
-        if(elem.gameTitle == this.state.userFavoriteGames[i].gameTitle && elem.dataCategory == this.state.userFavoriteGames[i].dataCategory){
+        if(elem.gameTitle === this.state.userFavoriteGames[i].gameTitle && elem.dataCategory === this.state.userFavoriteGames[i].dataCategory){
           return true;
         }
       }

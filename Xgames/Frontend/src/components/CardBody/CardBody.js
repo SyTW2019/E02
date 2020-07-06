@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import classes from './CardBody.module.css';
-import CardButton from '../CardButton/CardButton';
 import 'font-awesome/css/font-awesome.min.css';
 
 

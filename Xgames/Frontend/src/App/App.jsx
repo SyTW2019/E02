@@ -1,12 +1,9 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { Router, Route, Switch, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import * as serviceWorker from '../serviceWorker';
 
 import { history } from '../_helpers';
 import { alertActions } from '../_actions';
-import { PrivateRoute } from '../components/PrivateRoute';
 import { CLoginPage } from '../components/sections/LoginPage';
 import { CRegisterPage } from '../components/sections/RegisterPage';
 
