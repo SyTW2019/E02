@@ -1,4 +1,14 @@
-"scripts:" {
+{
+	"name": "app",
+	"version": "0.1.0",
+	"private": true,
+	"engines": {
+	  "npm": "5.7.1",
+	  "node": "9.5.0"
+	},
+	"scripts":{
 	"start": "node server.js",
 	"heroku-postbuild": "cd Frontend && npm start"
+	}
 }
+
