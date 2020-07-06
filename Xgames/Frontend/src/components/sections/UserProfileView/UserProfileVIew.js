@@ -17,8 +17,7 @@ export default class NewGameView extends React.Component {
             userEmail: '',
             creationDate: '',
             wantedVideogames: [],
-        };
-        
+        }; 
     }
 
     componentWillMount = () => {
@@ -44,7 +43,7 @@ export default class NewGameView extends React.Component {
             userEmail: userData.email,
             creationDate: userData.creationDate,
             wantedVideogames: userData.wantedVideoGames })
-      }
+        }
 
     getStoreLogo = (name) => {
 

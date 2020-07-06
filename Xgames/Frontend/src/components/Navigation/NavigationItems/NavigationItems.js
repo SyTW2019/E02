@@ -6,16 +6,21 @@ import NavigationBarMenu from '../../NavigationBar/NavigationBarMenu';
 
 function getActivePage (activePage) {
 
+    var userLogged = localStorage.getItem('user');
+    var loggedIn = false;
+    if(userLogged !== null){
+        loggedIn = true;
+    }
     switch(activePage){
         case "/":
             return (
             <ul className={classes.NavigationItems}>
                 <NavigationItem link="/" active>Inicio</NavigationItem>
                 <NavigationItem link="/foro ">Foro</NavigationItem>
-                <NavigationItem link="/newgame">Añadir Juego</NavigationItem>
+                {loggedIn ? <NavigationItem link="/newgame">Añadir Juego</NavigationItem> : null}
                 <NavigationItem link="/search">Buscador</NavigationItem>
                 <NavigationItem link="/noticias">Noticias</NavigationItem>
-                <NavigationItem link="/user_profile">User Profile</NavigationItem>
+                {loggedIn ? <NavigationItem link="/user_profile">User Profile</NavigationItem> : null}
                 <li className={classes.UserProfile}><NavigationBarMenu /></li>
             </ul>);
         case "/foro":
@@ -23,10 +28,10 @@ function getActivePage (activePage) {
             <ul className={classes.NavigationItems}>
             <NavigationItem link="/">Inicio</NavigationItem>
             <NavigationItem link="/foro" active>Foro</NavigationItem>
-            <NavigationItem link="/newgame">Añadir Juego</NavigationItem>
+            {loggedIn ? <NavigationItem link="/newgame">Añadir Juego</NavigationItem> : null}
             <NavigationItem link="/search">Buscador</NavigationItem>
             <NavigationItem link="/noticias">Noticias</NavigationItem>
-            <NavigationItem link="/user_profile">User Profile</NavigationItem>
+            {loggedIn ? <NavigationItem link="/user_profile">User Profile</NavigationItem> : null}
             <li className={classes.UserProfile}><NavigationBarMenu /></li>
             </ul>
             );
@@ -35,10 +40,10 @@ function getActivePage (activePage) {
             <ul className={classes.NavigationItems}>
             <NavigationItem link="/">Inicio</NavigationItem>
             <NavigationItem link="/foro">Foro</NavigationItem>
-            <NavigationItem link="/newgame" active>Añadir Juego</NavigationItem>
+            {loggedIn ? <NavigationItem link="/newgame">Añadir Juego</NavigationItem> : null}
             <NavigationItem link="/search">Buscador</NavigationItem>
             <NavigationItem link="/noticias">Noticias</NavigationItem>
-            <NavigationItem link="/user_profile">User Profile</NavigationItem>
+            {loggedIn ? <NavigationItem link="/user_profile">User Profile</NavigationItem> : null}
             <li className={classes.UserProfile}><NavigationBarMenu /></li>
             </ul>
             );
@@ -47,10 +52,10 @@ function getActivePage (activePage) {
             <ul className={classes.NavigationItems}>
             <NavigationItem link="/">Inicio</NavigationItem>
             <NavigationItem link="/foro">Foro</NavigationItem>
-            <NavigationItem link="/newgame">Añadir Juego</NavigationItem>
+            {loggedIn ? <NavigationItem link="/newgame">Añadir Juego</NavigationItem> : null}
             <NavigationItem link="/search" active>Buscador</NavigationItem>
             <NavigationItem link="/noticias">Noticias</NavigationItem>
-            <NavigationItem link="/user_profile">User Profile</NavigationItem>
+            {loggedIn ? <NavigationItem link="/user_profile">User Profile</NavigationItem> : null}
             <li className={classes.UserProfile}><NavigationBarMenu /></li>
             </ul>
             );
@@ -59,10 +64,10 @@ function getActivePage (activePage) {
             <ul className={classes.NavigationItems}>
             <NavigationItem link="/">Inicio</NavigationItem>
             <NavigationItem link="/foro">Foro</NavigationItem>
-            <NavigationItem link="/newgame">Añadir Juego</NavigationItem>
+            {loggedIn ? <NavigationItem link="/newgame">Añadir Juego</NavigationItem> : null}
             <NavigationItem link="/search">Buscador</NavigationItem>
             <NavigationItem link="/noticias" active>Noticias</NavigationItem>
-            <NavigationItem link="/user_profile">User Profile</NavigationItem>
+            {loggedIn ? <NavigationItem link="/user_profile">User Profile</NavigationItem> : null}
             <li className={classes.UserProfile}><NavigationBarMenu /></li>
             </ul>
             );
@@ -71,10 +76,10 @@ function getActivePage (activePage) {
             <ul className={classes.NavigationItems}>
             <NavigationItem link="/">Inicio</NavigationItem>
             <NavigationItem link="/foro">Foro</NavigationItem>
-            <NavigationItem link="/newgame">Añadir Juego</NavigationItem>
+            {loggedIn ? <NavigationItem link="/newgame">Añadir Juego</NavigationItem> : null}
             <NavigationItem link="/search">Buscador</NavigationItem>
             <NavigationItem link="/noticias">Noticias</NavigationItem>
-            <NavigationItem link="/user_profile">User Profile</NavigationItem>
+            {loggedIn ? <NavigationItem link="/user_profile">User Profile</NavigationItem> : null}
             <li className={classes.UserProfile}><NavigationBarMenu /></li>
             </ul>
             );

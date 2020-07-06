@@ -82,7 +82,9 @@ class HomeView extends Component{
         const current_user_data = JSON.parse(localStorage.getItem('user'));
         console.log(data);
         // check with current user logged in
-        for(var i=0;i<data.length;i++){
+
+        if(current_user_data !== null){
+          for(var i=0;i<data.length;i++){
             if(data[i].username == current_user_data.username){
                 this.setState({
                   userFavoriteGames: current_user_data.wantedVideoGames,
@@ -90,9 +92,16 @@ class HomeView extends Component{
             }
         }
         console.log('Data received');
+        }
+        else{
+          this.setState({
+            userFavoriteGames: '',
+          })
+        }
+        
       })
       .catch( () => {
-        alert('Error retrieving data');
+        alert('Error retrieving data!');
       })
     }
 

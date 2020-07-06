@@ -1,68 +1,25 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Proyecto Equipo E02 - Sistemas y Tecnologias Web.
 
-In the project directory, you can run:
+La aplicacion X Games ha sido desarrollada por Marta Garcia Luis, Alejandro Gonzalez Gonzalez y Vlad Comanescu.
 
-### `yarn start`
+## Funcionamiento
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+ - Clonar / Fork del repositorio.
+ - Instalar las librerias tanto en la parte de Frontend como en la parte de Backend(`npm i`)
+ - Para contar con los datos mas recientes tambien es importante hacer `node pullData.js` en la parte de Backend.
+ - Ejecutar `npm start` en la parte de Frontend y al mismo tiempo `node server.js` en la parte de Backend.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Objetivo de la aplicacion
 
-### `yarn test`
+Esta aplicacion ha sido pensada para funcionar como un comparador de precios entre tiendas que venden videojuegos y que los usuarios pueden entrar
+y comparar los precios de un videojuego concreto.Para ello se ha tenido que hacer un script de scraping de los diferentes videojuegos de tres paginas
+que venden videojuegos- Media Markt, El Corte Ingles y Pc Componentes.Tambien se categorizaron los videojuegos por categoria: Playstation 4, Xbox One,
+Nintendo Switch y tambien si son juegos que se pueden comprar actualmente o juegos que se reservan y van a poder comprarse proximamente.
+Una vez obtenidos los datos, el usuario puede mirar los diferentes juegos disponibles, ver detalles sobre el juego como: titulo,imagen,descripcion, rating(una nota media del juego), categoria y precios de las diferentes tiendas.
+A parte de esto la pagina esta pensada de que un usuario en caso de que se registre en la pagina, pueda añadir algun juego/juegos que considera que faltaria en la pagina con sus respectivos detalles.El usuario registrado tambien podria guardar como favorito los juegos que le gustan.
+El usuario tendra un perfil de usuario donde a parte de los datos del usuario tambien se podrian ver los juegos favoritos.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn build`
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
